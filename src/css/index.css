@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview {
+  width: 80%;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.params {
+  padding: 10px;
+  width: 20%;
+  height: 100%;
+  background-color: #aaa;
+}
+
+.unit {
+  width: 100%;
+  display: flex;
+  margin: 10px 0;
+}
+
+.unit label {
+  width: 20%;
+  /* text-align: center; */
+  line-height: 28px;
+  font-size: 14px;
+  color: #666;
+}
+
+#cvs {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
