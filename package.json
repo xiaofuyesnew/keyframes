@@ -1,0 +1,11 @@
+{
+  "name": "keyframes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:xiaofuyesnew/keyframes.git",
+  "author": "xiaofuyesnew <xiaofuyesnew@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
