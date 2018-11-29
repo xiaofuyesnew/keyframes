@@ -52,6 +52,13 @@ body {
 
 #cvs {
   position: absolute;
-  top: 0;
+  top: 100vh;
   left: 0;
+}
+
+/* 重写element样式 */
+.el-tabs__content {
+  max-height: calc(100vh - 39px);
+  overflow-x: hidden;
+  overflow-y: auto;
 }

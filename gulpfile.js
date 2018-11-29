@@ -38,15 +38,15 @@ gulp.task('dev:js', () =>
 //     .pipe(reload({ stream: true }))
 // )
 
-// gulp.task('dev:resource', () =>
-//   gulp
-//     .src('./src/resource/**/*.*')
-//     .pipe(gulp.dest('./dev/resource'))
-//     .pipe(reload({ stream: true }))
-// )
+gulp.task('dev:resource', () =>
+  gulp
+    .src('./src/resource/**/*.*')
+    .pipe(gulp.dest('./dev/resource'))
+    .pipe(reload({ stream: true }))
+)
 
 gulp.task(
-  'browser-sync', gulp.series('dev:js', 'dev:css', 'dev:html',
+  'browser-sync', gulp.series('dev:resource', 'dev:js', 'dev:css', 'dev:html',
   () => {
     browserSync.init({
       server: {
@@ -56,7 +56,7 @@ gulp.task(
     gulp.watch('src/css/*.css', gulp.series('dev:css'))
     gulp.watch('src/js/*.js', gulp.series('dev:js'))
     // gulp.watch('src/lib/*.js', gulp.series('dev:lib'))
-    // gulp.watch('src/resource/**/*.*', gulp.series('dev:resource'))
+    gulp.watch('src/resource/**/*.*', gulp.series('dev:resource'))
     gulp.watch(['src/*.html', '!src/template.html'], gulp.series('dev:html'))
   })
 )
@@ -69,7 +69,9 @@ gulp.task('html', () =>
     .pipe(
       htmlreplace({
         cdn: [
-          'https://cdn.bootcss.com/vue/2.5.17/vue.min.js'
+          'https://cdn.bootcss.com/vue/2.5.17/vue.min.js',
+          'https://cdn.bootcss.com/Sortable/1.6.0/Sortable.min.js',
+          'https://cdn.bootcss.com/Vue.Draggable/15.0.0/vuedraggable.min.js'
         ]
       })
     )
@@ -94,9 +96,9 @@ gulp.task('js', () =>
     .pipe(gulp.dest('docs/js'))
 )
 
-// gulp.task('resource', () =>
-//   gulp.src('src/resource/**/*.*').pipe(gulp.dest('docs/resource'))
-// )
+gulp.task('resource', () =>
+  gulp.src('src/resource/**/*.*').pipe(gulp.dest('docs/resource'))
+)
 
 // gulp.task('lib', () => gulp.src('src/lib/*.js').pipe(gulp.dest('docs/lib')))
 
@@ -104,4 +106,4 @@ gulp.task('js', () =>
 
 gulp.task('dev', gulp.series('browser-sync'))
 
-gulp.task('build', gulp.series('js', 'css', 'html'))
+gulp.task('build', gulp.series('resource', 'js', 'css', 'html'))
