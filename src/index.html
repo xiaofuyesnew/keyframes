@@ -18,13 +18,13 @@
         <el-tabs type="border-card">
           <el-tab-pane label="图片上传" v-cloak>
             <el-upload
-              v-loading="imgLoading"
-              class="upload-demo"
-              drag
-              action=""
-              multiple
-              :file-list="fileList"
-              :auto-upload="false"
+              v-loading="imgLoading" 
+              class="upload-demo" 
+              drag 
+              action="" 
+              multiple 
+              :file-list="fileList" 
+              :auto-upload="false" 
               :on-change="fileChange" 
               :on-remove="fileRemove">
               <i class="el-icon-upload"></i>
