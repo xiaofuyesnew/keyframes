@@ -31,8 +31,9 @@
             </el-upload>
           </el-tab-pane>
           <el-tab-pane label="顺序调整" v-cloak>
+            <div class="orderTip" v-show="fileList.length === 0">暂无排序项目</div>
             <draggable v-model="fileList" :options="{group:'people'}">
-              <div v-for="element in fileList" :key="element.name">{{element.name}}</div>
+              <div class="dragItem" v-for="element in fileList" :key="element.uid">{{element.name}}</div>
            </draggable>
           </el-tab-pane>
           <el-tab-pane label="合成预览" v-cloak>合成预览</el-tab-pane>
@@ -90,13 +91,13 @@
             >
             </el-input>
         </div>
+        <div class="unit" v-cloak>帧尺寸</div>
         <div class="unit">
             <label v-cloak>帧宽</label>
             <el-input
               size="mini"
               placeholder="帧宽：默认640"
               v-model="frameData.prewidth"
-              :disabled="sizeType === '1' ? true : false"
             >
             </el-input>
         </div>
@@ -106,9 +107,12 @@
               size="mini"
               placeholder="帧高：默认480"
               v-model="frameData.preheight"
-              :disabled="sizeType === '1' ? true : false"
             >
             </el-input>
+        </div>
+        <div class="unit warn" v-cloak>请检查相关数据的正确性，在一些数据错误时暂不会有完整的错误提示</div>
+        <div class="unit btns">
+            <el-button type="primary" round :loading="btnLoading" v-cloak @click="startDealing(0)">{{btnText}}</el-button>
         </div>
       </div>
       <canvas id="cvs" v-bind:width="canvas.width" v-bind:height="canvas.height"></canvas>

@@ -1,4 +1,5 @@
 const canvas = document.getElementById('cvs')
+const ctx = canvas.getContext('2d')
 
 const app = new Vue({
   el: '#app',
@@ -16,10 +17,13 @@ const app = new Vue({
     },
     fileList: [],
     imgLoading: false,
-    cssStr: ''
+    cssStr: '',
+    imgStr: '',
+    btnText: '开始生成',
+    btnLoading: false
   },
   computed: {
-    canvas: function () {
+    canvas: function() {
       if (this.sizeType === '1') {
         return {
           width: +this.canvasData.width,
@@ -34,34 +38,51 @@ const app = new Vue({
     }
   },
   methods: {
-    fileChange: function (file, fileList) {
+    fileChange: function(file, fileList) {
       this.fileList = fileList
     },
-    fileRemove: function (file, fileList) {
+    fileRemove: function(file, fileList) {
       this.fileList = fileList
     },
-    // fileToObj: function (fileArray, tmpNum, imgList) {
-    //   let that = this
-    //   let imgList = imgList
-    //   if (imgList === undefined) {
-    //     imgList = []
-    //   }
-    //   let tmp = tmpNum
-    //   if (tmp === undefined) {
-    //     tmp = 0
-    //   }
-    //   let reader = new FileReader()
-    //   reader.onload = function (e) {
-    //     console.log(e)
-    //     tmp++
-    //     if (fileArray.length < tmp + 1) {
-    //       that.fileToObj(fileArray, tmp, imgList)
-    //     }
-    //     if (fileArray.length === tmp + 1) {
-    //       that.imgList = imgList
-    //     }
-    //   }
-    //   reader.readAsDataURL(fileArray[tmp])
-    // }
+    startDealing: function(tmp) {
+      let self = this
+      let myTmp = tmp
+      let img = new Image()
+      let reader = new FileReader()
+      this.btnText = '生成中'
+      this.btnLoading = true
+      img.onload = function() {
+        // 绘制对应的图形
+        console.log(self.fileList[myTmp].name)
+        let row = 1
+        let col = 1
+        switch (self.sizeType) {
+          case '1':
+          col = +self.canvasData.width / +self.frameData.prewidth
+          row = +self.canvasData.height / +self.frameData.preheight
+          break
+          case '2':
+          col = +self.frameData.col
+          row = +self.frameData.row
+          break
+        }
+        ctx.drawImage(img, )
+        myTmp++
+        if (self.fileList.length > myTmp) {
+          setTimeout(function() {
+            self.startDealing(myTmp)
+          }, 1000)
+        } else {
+          self.btnText = '开始生成'
+          self.btnLoading = false
+          self.$message.success('图片生成完成');
+        }
+      }
+      reader.onload = function(e) {
+        // console.log(e.target.result)
+        img.src = e.target.result
+      }
+      reader.readAsDataURL(this.fileList[myTmp].raw)
+    }
   }
 })
