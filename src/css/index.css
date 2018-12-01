@@ -90,3 +90,7 @@ body {
   margin-bottom: 4px;
   cursor: pointer;
 }
+
+.imgPreview {
+  width: 100%;
+}

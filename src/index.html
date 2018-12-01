@@ -36,7 +36,10 @@
               <div class="dragItem" v-for="element in fileList" :key="element.uid">{{element.name}}</div>
            </draggable>
           </el-tab-pane>
-          <el-tab-pane label="合成预览" v-cloak>合成预览</el-tab-pane>
+          <el-tab-pane label="合成预览" v-cloak>
+            <span v-show="imgStr === ''">暂无预览</span>
+            <img v-show="imgStr !== ''" class="imgPreview" :src="imgStr" alt="" name="frames">
+          </el-tab-pane>
           <el-tab-pane label="CSS生成" v-cloak>
             <el-input
               type="textarea"
@@ -109,6 +112,12 @@
               v-model="frameData.preheight"
             >
             </el-input>
+        </div>
+        <div class="unit" v-cloak>CSS参数</div>
+        <div class="unit">
+            <el-radio v-model="cssAttr.unit" label="1" v-cloak>设定canvas宽高</el-radio>
+            <el-radio v-model="sizeType" label="1" v-cloak>设定canvas宽高</el-radio>
+            <el-radio v-model="sizeType" label="1" v-cloak>设定canvas宽高</el-radio>
         </div>
         <div class="unit warn" v-cloak>请检查相关数据的正确性，在一些数据错误时暂不会有完整的错误提示</div>
         <div class="unit btns">
