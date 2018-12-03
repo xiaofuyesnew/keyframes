@@ -16,7 +16,7 @@ const app = new Vue({
     imgLoading: false,
     cssStr: '',
     cssAttr: {
-      unit: 'px',
+      unit: '1',
     },
     imgStr: '',
     btnText: '开始生成',
