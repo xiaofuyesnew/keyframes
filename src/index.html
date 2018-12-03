@@ -120,6 +120,11 @@
             <el-radio v-model="cssAttr.unit" label="2" v-cloak>rem</el-radio>
             <el-radio v-model="cssAttr.unit" label="3" v-cloak>vw/vh</el-radio>
         </div>
+        <div class="unit">
+            <label v-cloak>设计稿</label>
+            <el-radio v-model="cssAttr.design" label="640" v-cloak>640</el-radio>
+            <el-radio v-model="cssAttr.design" label="750" v-cloak>750</el-radio>
+        </div>
         <div class="unit warn" v-cloak>请检查相关数据的正确性，在一些数据错误时暂不会有完整的错误提示</div>
         <div class="unit btns">
             <el-button type="primary" round :loading="btnLoading" v-cloak @click="startDealing(0)">{{btnText}}</el-button>
