@@ -115,15 +115,56 @@
         </div>
         <div class="unit" v-cloak>CSS参数</div>
         <div class="unit">
+            <label v-cloak>设计稿</label>
+            <el-radio v-model="cssAttr.design" label="640" v-cloak>640</el-radio>
+            <el-radio v-model="cssAttr.design" label="750" v-cloak>750</el-radio>
+        </div>
+        <div class="unit">
             <label v-cloak>单位</label>
             <el-radio v-model="cssAttr.unit" label="1" v-cloak>px</el-radio>
             <el-radio v-model="cssAttr.unit" label="2" v-cloak>rem</el-radio>
             <el-radio v-model="cssAttr.unit" label="3" v-cloak>vw/vh</el-radio>
         </div>
         <div class="unit">
-            <label v-cloak>设计稿</label>
-            <el-radio v-model="cssAttr.design" label="640" v-cloak>640</el-radio>
-            <el-radio v-model="cssAttr.design" label="750" v-cloak>750</el-radio>
+            <label v-cloak>名称</label>
+            <el-input
+              size="mini"
+              placeholder="动画名称：默认keys"
+              v-model="cssAttr.name"
+            >
+        </div>
+        <div class="unit">
+            <label v-cloak>循环</label>
+            <el-switch v-model="cssAttr.loop">
+            </el-switch>
+        </div>
+        <div class="unit">
+            <label v-cloak>次数</label>
+            <el-input
+              size="mini"
+              placeholder="循环次数：默认0，无限循环"
+              v-model="cssAttr.loopNum"
+              :disabled="!cssAttr.loop"
+            >
+            </el-input>
+        </div>
+        <div class="unit">
+            <label v-cloak>时间</label>
+            <el-input
+              size="mini"
+              placeholder="循环次数：默认1s"
+              v-model="cssAttr.time"
+            >
+            </el-input>
+        </div>
+        <div class="unit">
+            <label v-cloak>延迟</label>
+            <el-input
+              size="mini"
+              placeholder="循环次数：默认0s,不延迟"
+              v-model="cssAttr.delay"
+            >
+            </el-input>
         </div>
         <div class="unit warn" v-cloak>请检查相关数据的正确性，在一些数据错误时暂不会有完整的错误提示</div>
         <div class="unit btns">

@@ -17,7 +17,12 @@ const app = new Vue({
     cssStr: '',
     cssAttr: {
       unit: '1',
-      design: '1'
+      design: '640',
+      name: 'keys',
+      loop: false,
+      loopNum: 0,
+      time: 1,
+      delay: 0
     },
     imgStr: '',
     btnText: '开始生成',
@@ -45,19 +50,50 @@ const app = new Vue({
     fileRemove: function(file, fileList) {
       this.fileList = fileList
     },
-    dealCss: function (row, col) {
+    dealCss: function(row, col) {
+      let data = this.cssAttr
+      let unit = ''
+      let wUnit = 0
+      let hUnit = 0
+      switch (data.unit) {
+        case '1':
+          unit = 'px'
+          wUnit = +this.frameData.prewidth
+          hUnit = +this.frameData.preheight
+          break
+        case '2':
+          unit = 'rem'
+          wUnit = +this.frameData.prewidth / 100
+          hUnit = +this.frameData.preheight / 100
+          break
+        case '3':
+          unit = 'vw'
+          wUnit = +this.frameData.prewidth / +data.design
+          wUnit = +this.frameData.preheight / +data.design
+          break
+      }
       let step = (100 / this.fileList.length).toFixed(2)
+      let animClass = `.${data.name} {\n  background-size: ${`${col * wUnit}${unit} ${row * hUnit}${unit}`};\n}\n.${data.name}.anim {\n  animation: ${data.name} ${data.time}s ${
+        +data.delay ? `${data.delay}s` : ''
+      } steps(1, end) forwords ${
+        data.loop ? (+data.loopNum ? data.loopNum : 'infinite') : ''
+      };\n}`
+      // console.log(animClass)
       let frames = ''
       for (let i = 0; i < this.fileList.length; i++) {
         if (i === 0) {
-          frames += `  0% { background-position: 0 0; }`
+          frames = `  0% { background-position: 0 0; }`
         } else if (i === this.fileList.length - 1) {
-          frames += `\n  100% { background-position: 0 0; }`
+          frames = `${frames}\n  100% { background-position: ${`${-(i % col)* wUnit + unit} ${-Math.floor(i / col) * hUnit + unit}`}; }`
         } else {
-          frames += `\n  ${(step * i).toFixed(2)}% { background-position: 0 0; }`
+          frames = `${frames}\n  ${(step * i).toFixed(
+            2
+          )}% { background-position: ${`${-(i % col)* wUnit + unit} ${-Math.floor(i / col) * hUnit + unit}`}; }`
         }
       }
-      console.log(frames)
+      frames = `@keyframes ${data.name} {\n${frames}\n}`
+      // console.log(frames)
+      this.cssStr = `${animClass}\n\n${frames}`
     },
     startDealing: function(tmp) {
       let canvas = document.getElementById('cvs')

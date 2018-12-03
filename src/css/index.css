@@ -75,6 +75,10 @@ body {
   overflow-y: auto;
 }
 
+.el-switch {
+  height: auto!important;
+}
+
 /* 排序项目样式 */
 
 .dragItem {
@@ -92,5 +96,5 @@ body {
 }
 
 .imgPreview {
-  width: 100%;
+  max-width: 100%;
 }
