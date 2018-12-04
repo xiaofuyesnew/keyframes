@@ -1,0 +1,1 @@
+"use strict";var gulp=require("gulp");gulp.task("taskName",function(){return gulp.src("path/files/*.*").pipe().pipe().pipe().pipe(gulp.dest("path/dest"))});

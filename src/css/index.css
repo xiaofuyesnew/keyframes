@@ -34,6 +34,8 @@ body {
   width: 20%;
   height: 100%;
   background-color: #aaa;
+  overflow-x: hidden;
+  overflow-y: auto; 
 }
 
 .unit {
