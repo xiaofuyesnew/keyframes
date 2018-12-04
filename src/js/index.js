@@ -130,7 +130,9 @@ const app = new Vue({
         ctx.drawImage(
           img,
           (myTmp % col) * +self.frameData.prewidth,
-          Math.floor(myTmp / col) * +self.frameData.preheight
+          Math.floor(myTmp / col) * +self.frameData.preheight,
+          +self.frameData.prewidth,
+          +self.frameData.preheight
         )
         myTmp++
         if (self.fileList.length > myTmp) {
