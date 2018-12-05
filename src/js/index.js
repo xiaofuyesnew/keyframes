@@ -68,8 +68,8 @@ const app = new Vue({
           break
         case '3':
           unit = 'vw'
-          wUnit = +this.frameData.prewidth / +data.design
-          hUnit = +this.frameData.preheight / +data.design
+          wUnit = +this.frameData.prewidth / +data.design * 100
+          hUnit = +this.frameData.preheight / +data.design * 100
           break
       }
       let step = (100 / this.fileList.length).toFixed(2)
