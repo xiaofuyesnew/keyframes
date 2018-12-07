@@ -75,7 +75,7 @@ const app = new Vue({
       let step = (100 / this.fileList.length).toFixed(2)
       let animClass = `.${data.name} {\n  width: ${wUnit}${unit};\n  height: ${hUnit}${unit};\n  background-size: ${`${(col * wUnit).toFixed(2)}${unit} ${(row * hUnit).toFixed(2)}${unit}`};\n}\n\n.${data.name}.anim {\n  animation: ${data.name} ${data.time}s ${
         +data.delay ? `${data.delay}s` : ''
-      } steps(1, end) forwords ${
+      } steps(1, end) forwards ${
         data.loop ? (+data.loopNum ? data.loopNum : 'infinite') : ''
       };\n}`
       // console.log(animClass)
