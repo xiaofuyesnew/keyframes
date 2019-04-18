@@ -83,6 +83,9 @@ const app = new Vue({
       for (let i = 0; i < this.fileList.length; i++) {
         if (i === 0) {
           frames = `  0% { background-position: 0 0; }`
+          if (this.fileList.length === 2) {
+            frames += `\n  50% { background-position: 0 0; }`
+          }
         } else if (i === this.fileList.length - 1) {
           frames = `${frames}\n  100% { background-position: ${`${-(i % col)* wUnit + unit} ${-Math.floor(i / col) * hUnit + unit}`}; }`
         } else {
