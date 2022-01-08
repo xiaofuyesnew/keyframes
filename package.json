@@ -1,27 +1,35 @@
 {
   "name": "keyframes",
   "version": "1.0.0",
+  "description": "一个序列帧精灵图和CSS单帧代码生成工具",
   "main": "index.js",
-  "repository": "git@github.com:xiaofuyesnew/keyframes.git",
-  "author": "xiaofuyesnew <xiaofuyesnew@qq.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "^7.1.5",
-    "@babel/preset-env": "^7.1.5",
-    "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-cli": "^2.0.1",
-    "gulp-html-minify": "0.0.14",
-    "gulp-html-replace": "^1.6.2",
-    "gulp-uglify": "^3.0.1",
-    "lodash": ">=4.17.13",
-    "minimatch": ">=3.0.2"
-  },
   "scripts": {
-    "build": "gulp clean && gulp build",
-    "dev": "gulp dev:clean && gulp dev"
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaofuyesnew/keyframes.git"
+  },
+  "keywords": [],
+  "author": "Allen Wong <xiaofuyesnew@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiaofuyesnew/keyframes/issues"
+  },
+  "homepage": "https://github.com/xiaofuyesnew/keyframes#readme",
+  "dependencies": {
+    "element-plus": "^1.3.0-beta.2",
+    "vue": "^3.2.26"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.1",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.12",
+    "unplugin-auto-import": "^0.5.5",
+    "unplugin-vue-components": "^0.17.11",
+    "vite": "^2.7.10"
   }
 }

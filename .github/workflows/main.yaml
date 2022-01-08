@@ -1,0 +1,35 @@
+name: publish
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
+      - name: setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+          cache: 'pnpm'
+      - name: install dependencies
+        run: pnpm install
+      - name: build
+        run: pnpm build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: pages
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}

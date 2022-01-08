@@ -1,9 +1,13 @@
 # keyframes
+
 一个序列帧精灵图和CSS单帧代码生成工具
 
-[点击查看](https://xiaofuyesnew.com/keyframes/)
+[点击查看](https://xiaofuyesnew.github.io/keyframes)
 
-### TODO
+## TODO
 
-- [ ] 完善文档
-- [ ] 让这个工具有更多应用场景
+- [ ] 重建框架
+- [ ] actions
+- [ ] 功能实现
+- [ ] 细节优化
+- [ ] 文档编写
