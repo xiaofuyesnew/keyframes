@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,11 +21,6 @@ jobs:
         run: pnpm install
       - name: build
         run: pnpm build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: deploy
         uses: crazy-max/ghaction-github-pages@v2
         with:
