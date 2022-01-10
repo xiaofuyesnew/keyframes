@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { Layout, Tabs } from 'antd'
 
-import Provider, { Context } from './store'
+import Provider, { Context } from './store/index'
 import ImgList from './components/ImgList'
 
 const { Header, Footer, Sider, Content } = Layout
