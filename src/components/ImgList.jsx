@@ -1,9 +1,18 @@
-import { Button } from 'antd'
+import { useContext, useEffect, useState } from 'react'
+import { Context } from '../store/index'
+import { Button, message, Spin } from 'antd'
 import { CloudUploadOutlined } from '@ant-design/icons'
 
 import DragList from './DragList'
 
+const checkImgs = (imgList) => {}
+
 const ImgList = () => {
+  const [data, setData] = useState({
+    loading: false
+  })
+  const { state, dispatch } = useContext(Context)
+
   const handleChange = (e) => {
     console.log(e.currentTarget.files)
   }
@@ -23,7 +32,9 @@ const ImgList = () => {
           onChange={handleChange}
         />
       </Button>
-      <DragList />
+      <Spin spinning={data.loading}>
+        <DragList />
+      </Spin>
     </div>
   )
 }

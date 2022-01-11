@@ -6,10 +6,10 @@ const initialState = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SET_DATA':
+    case 'updateImgList':
       return {
         ...state,
-        ...action.payload,
+        imgList: action.payload
       }
     default:
       throw new Error(`Unhandled action type: ${action.type}`)
