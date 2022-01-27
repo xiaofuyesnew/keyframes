@@ -1,13 +1,13 @@
 <template>
-  <div
-    class="w-full w-max-[800px] h-[50px] dark:bg-slate-800 px-[20px] flex items-center justify-between"
+  <header
+    class="w-full w-max-[800px] h-[50px] bg-slate-200 dark:bg-slate-800 px-[20px] flex items-center justify-between absolute left-0 top-0"
   >
     <div class="flex items-center">
       <img class="w-[30px] h-[30px]" src="/images/logo.svg" />
       <div class="text-slate-900 dark:text-white font-semibold text-[18px] pl-[10px]">Keyframes</div>
     </div>
     <div class="flex items-center">
-      <a href="https://github.com/xiaofuyesnew/keyframes">
+      <a class="hover:opacity-60" href="https://github.com/xiaofuyesnew/keyframes">
         <Github class="w-[30px] fill-slate-900 dark:fill-white" />
       </a>
       <button
@@ -27,7 +27,7 @@
         />
       </button>
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup>

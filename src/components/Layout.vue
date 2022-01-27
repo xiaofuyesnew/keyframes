@@ -1,12 +1,10 @@
 <template>
-  <div class="w-screen h-screen overflow-hidden flex flex-col">
-    <l-header />
-    <l-content>
-      <slot></slot>
-      <l-aside />
-    </l-content>
-    <l-footer />
-  </div>
+  <l-header />
+  <l-content>
+    <slot></slot>
+    <l-aside />
+  </l-content>
+  <l-footer />
 </template>
 
 <script setup>
