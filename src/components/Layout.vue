@@ -1,9 +1,12 @@
 <template>
   <l-header />
+  <!-- <l-content class="w-[calc(100%-400px)]"> -->
   <l-content>
-    <slot></slot>
-    <l-aside />
+    <slot name="content"></slot>
   </l-content>
+  <!-- <l-aside>
+    <slot name="aside"></slot>
+  </l-aside> -->
   <l-footer />
 </template>
 

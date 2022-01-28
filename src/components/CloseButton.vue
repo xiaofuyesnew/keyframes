@@ -1,0 +1,3 @@
+<template>
+  <div class="w-[24px] h-[24px] rounded-full relative bg-gray-500 cursor-pointer hover:opacity-80 before:w-[2px] before:h-[18px] before:absolute before:top-[50%] before:left-[50%] before:-translate-x-[50%] before:-translate-y-[50%] before:bg-white before:rotate-45 after:w-[2px] after:h-[18px] after:absolute after:top-[50%] after:left-[50%] after:-translate-x-[50%] after:-translate-y-[50%] after:bg-white after:-rotate-45" ></div>
+</template>

@@ -2,9 +2,17 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    mode: 'dark'
+    mode: 'dark',
+    showAside: true,
+    showMask: false,
   },
   mutations: {
+    toggleMask: (state, payload) => {
+      state.showMask = !state.showMask
+    },
+    toggleAside: (state, payload) => {
+      state.showAside = !state.showAside
+    },
     toggleMode: (state, mode) => {
       if (state.mode === 'dark') {
         localStorage.setItem('mode', 'light')
@@ -18,6 +26,6 @@ export default createStore({
     },
     setMode: (state, mode) => {
       state.mode = mode
-    }
+    },
   },
 })

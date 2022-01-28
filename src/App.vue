@@ -8,16 +8,16 @@ import { useStore } from 'vuex'
 
 const { commit } = useStore()
 
-const theme = localStorage.getItem('theme')
+const mode = localStorage.getItem('mode')
 
 onBeforeMount(() => {
-  if (theme) {
-    commit('setMode', theme)
-    if (theme === 'dark') {
+  if (mode) {
+    commit('setMode', mode)
+    if (mode === 'dark') {
       document.body.classList.add('dark')
     }
   } else {
-    localStorage.setItem('theme', 'dark')
+    localStorage.setItem('mode', 'dark')
     commit('setMode', 'dark')
     document.body.classList.add('dark')
   }
