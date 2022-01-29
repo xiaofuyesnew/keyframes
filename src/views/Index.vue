@@ -4,10 +4,11 @@
       <div class="w-full h-full flex items-center">
         <tab />
         <tab-page>
-          <div v-if="state.current === 0">上传图片</div>
-          <div v-if="state.current === 1">图片排序</div>
-          <div v-if="state.current === 2">合成预览</div>
-          <div v-if="state.current === 3">代码预览</div>
+          <div class="w-full h-full flex items-center justify-center" v-if="state.current === 0">
+        
+          </div>
+          <div v-if="state.current === 1">合成预览</div>
+          <div v-if="state.current === 2">代码预览</div>
         </tab-page>
       </div>
     </template>

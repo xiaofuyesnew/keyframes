@@ -7,10 +7,7 @@ export default createStore({
     showMask: false,
     tabs: [
       {
-        text: '上传图片',
-      },
-      {
-        text: '图片排序',
+        text: '上传图片排序',
       },
       {
         text: '合成预览',
