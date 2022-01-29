@@ -2,8 +2,13 @@
   <layout>
     <template #content>
       <div class="w-full h-full flex items-center">
-        <tab :tabs="data.tabs" />
-        <tab-page></tab-page>
+        <tab />
+        <tab-page>
+          <div v-if="state.current === 0">上传图片</div>
+          <div v-if="state.current === 1">图片排序</div>
+          <div v-if="state.current === 2">合成预览</div>
+          <div v-if="state.current === 3">代码预览</div>
+        </tab-page>
       </div>
     </template>
   </layout>
@@ -13,7 +18,6 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
 import { useStore } from 'vuex'
 import Layout from '@/components/Layout.vue'
 import LMask from '@/components/Mask.vue'
@@ -22,23 +26,6 @@ import Tab from '@/components/Tabs/Tab.vue'
 import TabPage from '@/components/Tabs/Page.vue'
 import MyCanvas from '@/components/Canvas.vue'
 
-const { commit } = useStore()
+const { state, commit } = useStore()
 
-const data = reactive({
-  tabs: [
-    {
-      text: '上传图片'
-    },
-    {
-      text: '图片排序'
-    },
-    {
-      text: '合成预览'
-    },
-    {
-      text: '代码预览'
-    }
-  ]
-
-})
 </script>

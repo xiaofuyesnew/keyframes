@@ -5,8 +5,26 @@ export default createStore({
     mode: 'dark',
     showAside: true,
     showMask: false,
+    tabs: [
+      {
+        text: '上传图片',
+      },
+      {
+        text: '图片排序',
+      },
+      {
+        text: '合成预览',
+      },
+      {
+        text: '代码预览',
+      },
+    ],
+    current: 0,
   },
   mutations: {
+    tabChange: (state, index) => {
+      state.current = index
+    },
     toggleMask: (state, payload) => {
       state.showMask = !state.showMask
     },
