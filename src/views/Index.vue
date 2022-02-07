@@ -5,7 +5,7 @@
         <tab />
         <tab-page>
           <div class="w-full h-full flex items-center justify-center" v-if="state.current === 0">
-        
+            <upload />
           </div>
           <div v-if="state.current === 1">合成预览</div>
           <div v-if="state.current === 2">代码预览</div>
@@ -25,6 +25,7 @@ import LMask from '@/components/Mask.vue'
 import CloseButton from '@/components/CloseButton.vue'
 import Tab from '@/components/Tabs/Tab.vue'
 import TabPage from '@/components/Tabs/Page.vue'
+import Upload from '@/components/Upload/Index.vue'
 import MyCanvas from '@/components/Canvas.vue'
 
 const { state, commit } = useStore()

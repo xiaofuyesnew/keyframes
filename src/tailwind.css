@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.no-scrollbar::-webkit-scrollbar {
+/* .no-scrollbar::-webkit-scrollbar {
   display: none;
+} */
+
+@layer components {
+  .button {
+    @apply h-[32px] py-[8px] px-[15px] bg-blue-500 rounded-[6px] text-white flex items-center justify-center leading-none text-[14px];
+  }
+
+  .button:hover {
+    @apply opacity-60 cursor-pointer;
+  }
 }
